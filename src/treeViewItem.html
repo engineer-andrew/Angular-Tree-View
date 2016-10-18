@@ -1,0 +1,10 @@
+<div>
+    <div data-ng-if="hasChildren()" class="tree-parent" data-ng-class="{'tree-child': hasParent()}">
+        <div data-ng-click="toggleExpanded()" class="clickable">
+            <i class="fa" data-ng-class="{'fa-chevron-right': !item.expanded, 'fa-chevron-down': item.expanded}"></i>
+            <span>{{item.display}}</span>
+        </div>
+        <ea-tree-view data-ng-if="item.expanded" callback="callback" items="item.items"></ea-tree-view>
+    </div>
+    <div data-ng-if="!hasChildren()" data-ng-click="activate()" class="tree-child clickable" data-ng-class="{active: item.isActive}">{{item.display}}</div>
+</div>

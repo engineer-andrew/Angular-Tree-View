@@ -1,0 +1,33 @@
+{
+  "name": "angular-tree-view",
+  "version": "1.0.1",
+  "description": "A dynamic tree view directive that can be used with ui-router for navigation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start karma.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/engineer-andrew/Angular-Tree-View.git"
+  },
+  "keywords": [
+    "angular",
+    "tree-view"
+  ],
+  "author": "Andrew Webster",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/engineer-andrew/Angular-Tree-View/issues"
+  },
+  "homepage": "https://github.com/engineer-andrew/Angular-Tree-View#readme",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "jshint": "^2.9.3"
+  }
+}
