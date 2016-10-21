@@ -1,6 +1,6 @@
 {
   "name": "angular-tree-view",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A dynamic tree view directive that can be used with ui-router for navigation.",
   "main": "index.js",
   "scripts": {

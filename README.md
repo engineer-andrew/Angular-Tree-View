@@ -10,6 +10,31 @@ $ npm install angular-tree-view
 ```
 <script src="/node_modules/angular-tree-view/dist/eaTreeView-tpls.min.js"></script>
 <script src="/node_modules/angular-tree-view/dist/eaTreeView.min.js"></script>
+
+<ea-tree-view is-root="true" items="model.simpsons" callback="show"></ea-tree-view>
+
+angular.module('app').controller('mainController', function($scope) {
+    $scope.model = {
+        simpsons: [
+            {
+                display: 'Abe',
+                items: [
+                    {display: 'Homer', items: [{display: 'Bart'}, {display: 'Lisa'}, {display: 'Maggie'}]},
+                    {display: 'Herb'},
+                    {display: 'Abbie'}
+                ]
+            },
+            {
+                display: 'Jacqueline',
+                items: [
+                    {display: 'Patty'},
+                    {display: 'Selma'},
+                    {display: 'Marge', items: [{display: 'Bart'}, {display: 'Lisa'}, {display: 'Maggie'}]}
+                ]
+            }
+        ]
+    };
+});
 ```
 
 ### Quick Notes
