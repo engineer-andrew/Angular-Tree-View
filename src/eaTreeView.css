@@ -1,3 +1,7 @@
+.clickable {
+    cursor: pointer;
+}
+
 .active {
     background-color: lightgrey;
 }
