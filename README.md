@@ -7,10 +7,15 @@ $ npm install angular-tree-view
 ```
 
 ### Usage
+#### With Templates Included
 ```
 <script src="/node_modules/angular-tree-view/dist/eaTreeView-tpls.min.js"></script>
+```
+#### Without Templates
+```
 <script src="/node_modules/angular-tree-view/dist/eaTreeView.min.js"></script>
-
+```
+```
 <ea-tree-view is-root="true" items="model.simpsons" callback="show"></ea-tree-view>
 
 angular.module('app', ['ea.treeview']).controller('mainController', function($rootScope, $scope, eaTreeViewFactory) {
