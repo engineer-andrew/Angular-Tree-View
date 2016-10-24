@@ -49,7 +49,7 @@ angular.module('app', ['ea.treeview']).controller('mainController', function($ro
 ```
 
 ### Demo
-Right now the only demo I have is available on plnkr.  You can check it out <a href="http://plnkr.co/edit/hR3TiONz3jOqJhsWSizR?p=preview" target="_blank">here</a>
+The demo is available on <a href="http://plnkr.co/edit/hR3TiONz3jOqJhsWSizR?p=preview" target="_blank">plnkr</a> or <a href="https://engineer-andrew.github.io/Angular-Tree-View/index.html" target="_blank">Github Pages</a>.
 
 ### Usage Notes
 1. The first (root) array can be named anything, but all children of that root have to be named `items` otherwise the directive won't bind properly.  I'm going to look into making that configurable, but for now it is what it is.
