@@ -1,0 +1,7 @@
+.left, .right {
+    float: left;
+}
+
+.right {
+    padding-left: 5em;
+}
