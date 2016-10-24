@@ -1,4 +1,4 @@
-<div>
+<div ng-class="{'tree-trunk': !hasParent()}">
     <div data-ng-if="hasChildren()" class="tree-parent" data-ng-class="{'tree-child': hasParent()}">
         <div data-ng-click="toggleExpanded()" class="clickable">
             <i class="fa" data-ng-class="{'fa-chevron-right': !item.expanded, 'fa-chevron-down': item.expanded}"></i>

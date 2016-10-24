@@ -1,7 +1,29 @@
+body {
+    border-radius: 1em;
+}
+
 .left, .right {
+    margin: .5em 0 0 .5em;
     float: left;
+    height: 95%;
+    border-radius: 1em;
+}
+
+.left {
+    background-color: skyblue;
+    width: 25%;    
 }
 
 .right {
     padding-left: 5em;
+    width: 65%;
+    background-color:black; 
+}
+
+.active {
+    background-color: royalblue;
+}
+
+.tree-trunk {
+    padding: .5em 0 0 .5em;
 }
