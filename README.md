@@ -1,11 +1,4 @@
-<style>
-    .string {
-        color: white;
-        border-radius: .25em;
-        background-color: red;
-        padding: .5em;
-    }
-</style>
+<link href="/readme.css">
 # Angular-Tree-View
 A dynamic tree view directive for Angular 1.5.*
 
