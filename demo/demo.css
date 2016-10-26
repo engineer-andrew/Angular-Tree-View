@@ -5,7 +5,7 @@ body {
 .left, .right {
     margin: .5em 0 0 .5em;
     float: left;
-    height: 95%;
+    height: 47.5%;
     border-radius: 1em;
 }
 
@@ -26,4 +26,8 @@ body {
 
 .tree-trunk {
     padding: .5em 0 0 .5em;
+}
+
+.white {
+    color: white;
 }
