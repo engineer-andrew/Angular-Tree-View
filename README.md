@@ -1,3 +1,11 @@
+<style>
+    .string {
+        color: white;
+        border-radius: .25em;
+        background-color: red;
+        padding: .5em;
+    }
+</style>
 # Angular-Tree-View
 A dynamic tree view directive for Angular 1.5.*
 
@@ -17,7 +25,7 @@ In case you can't tell I'm brand new to Github and npm so I'm going to do my bes
 ## API
 ### Tree View
 ##### branch-name
-<span style="background-color:red;padding:.5em;color:white;border-radius:.25em;">String</span><span style="margin-left:.5em;background-color:green;padding:.5em;color:white;border-radius:.25em;">Optional</span>
+<span class="string">String</span><span style="margin-left:.5em;background-color:green;padding:.5em;color:white;border-radius:.25em;">Optional</span>
 If set, specifies the property that will contain additional children
 Since:
 * 1.0.5
