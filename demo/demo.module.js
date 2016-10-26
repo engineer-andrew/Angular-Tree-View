@@ -1,4 +1,4 @@
-angular.module('demo', ['ea.treeview']).controller('mainController', function($scope, eaTreeViewFactory) {
+angular.module('demo', ['ea.treeview']).controller('simpsonsController', function($scope, eaTreeViewFactory) {
     $scope.model = {
         simpsons: [
             {
@@ -26,4 +26,14 @@ angular.module('demo', ['ea.treeview']).controller('mainController', function($s
         $scope.model.imageSource = 'demo/images/' + item.stateName + '.jpg';
         $scope.model.imageAlt = item.display 
     };
+}).controller('happyDaysController', function($scope, eaTreeViewFactory) {
+    $scope.model = {
+        characters: [
+            {display: 'Howard Cunningham', items: [{display: 'Richie Cunningham', stateName: 'Richie'}, {display: 'Joanie Cunningham', stateName: 'Joanie'}]},
+            {display: 'Potsie', stateName: 'Potsie'},
+            {display: 'Fonzie', stateName: 'Fonzie'}
+        ]
+    };
+
+    eaTreeViewFactory.setItems($scope.model.characters, $scope.$id);    
 });

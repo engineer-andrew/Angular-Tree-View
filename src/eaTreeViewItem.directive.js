@@ -1,6 +1,7 @@
 angular.module('ea.treeview').directive('eaTreeViewItem', function(eaTreeViewFactory) {
     return {
         link: function (scope, element, attributes, controller) {
+            scope.item.items = scope.item[scope.branchName];
             // assign the property on scope to the result of invoking the callback
             // to properly propagate the callback up the tree
             scope.callback = scope.callback();
@@ -8,10 +9,11 @@ angular.module('ea.treeview').directive('eaTreeViewItem', function(eaTreeViewFac
             // activate the clicked-on item
             scope.activate = function () {
                 // effectively applies the active class to the clicked-on item
-                eaTreeViewFactory.setActive(scope.item.stateName);
+                eaTreeViewFactory.setActive(scope.item.stateName, scope.datasetId);
                 // triggers the callback all the way back up the tree
-                // TODO: check whether a callback exists before trying to invoke it
-                scope.callback(scope.item);
+                if (!!scope.callback) {
+                    scope.callback(scope.item);
+                }                
             };
 
             // determine whether the item has children to properly manipulate the DOM
@@ -34,7 +36,9 @@ angular.module('ea.treeview').directive('eaTreeViewItem', function(eaTreeViewFac
         require: '^eaTreeView',
         restrict: 'E',
         scope: {
+            branchName: '@',
             callback: '&',
+            datasetId: '=',
             item: '='
         },
         templateUrl: 'treeViewItem.html'
