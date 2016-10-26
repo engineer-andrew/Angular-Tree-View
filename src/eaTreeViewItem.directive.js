@@ -41,6 +41,8 @@ angular.module('ea.treeview').directive('eaTreeViewItem', function(eaTreeViewFac
             datasetId: '=',
             item: '='
         },
-        templateUrl: 'treeViewItem.html'
+        templateUrl: function(element, attributes) {
+            return eaTreeViewFactory.getItemTemplateUrl();
+        }
     };
 });

@@ -19,6 +19,9 @@ angular.module('ea.treeview').factory('eaTreeViewFactory', function($rootScope) 
             datasetId = datasetId || 'default';
             return concealed.items[datasetId];
         },
+        getItemTemplateUrl: function() {
+            return concealed.itemTemplateUrl;
+        },
         // set the active item and expand all ancestors of the active item
         setActive: function(state, datasetId, items, matchFound, nestingLevel, stopExpandingParents) {
             // initialize whatever wasn't passed to a default value
@@ -60,6 +63,15 @@ angular.module('ea.treeview').factory('eaTreeViewFactory', function($rootScope) 
         setItems: function(items, datasetId) {
             datasetId = datasetId || 'default';
             concealed.items[datasetId] = items;
+        },
+        setItemTemplateUrl: function(url) {
+            if (!url) {
+                if (!concealed.itemTemplateUrl) {
+                    concealed.itemTemplateUrl = 'treeViewItem.html';
+                }
+            } else {
+                concealed.itemTemplateUrl = url;
+            }
         }
     };
 
