@@ -1,0 +1,59 @@
+<div>
+    <div class="markup">
+        Markup
+        <pre><code>&lt;ea-tree-view items="model.simpsons" dataset-id="$id" callback="show"&gt;&lt;/ea-tree-view&gt;</code></pre>
+    </div>
+    <div class="code">
+        Code
+        <div>
+            <pre><code>$scope.model = {
+    simpsons: [
+        {
+            display: 'Abe',
+            items: [
+                {
+                    display: 'Homer', items: [
+                        {display: 'Bart', stateName: 'Homer-Bart'},
+                        {display: 'Lisa', stateName: 'Homer-Lisa'},
+                        {display: 'Maggie', stateName: 'Homer-Maggie'}
+                    ]
+                },
+                {display: 'Herb', stateName: 'Herb'},
+                {display: 'Abbie', stateName: 'Abbie'}
+            ]
+        },
+        {
+            display: 'Jacqueline',
+            items: [
+                {display: 'Patty', stateName: 'Patty'},
+                {display: 'Selma', stateName: 'Selma'},
+                {
+                    display: 'Marge', items: [
+                        {display: 'Bart', stateName: 'Marge-Bart'},
+                        {display: 'Lisa', stateName: 'Marge-Lisa'},
+                        {display: 'Maggie', stateName: 'Marge-Maggie'}
+                    ]
+                },
+            ]
+        }
+    ]
+};
+
+eaTreeViewFactory.setItems($scope.model.simpsons, $scope.$id);
+
+$scope.show = function(item) {
+    $scope.model.imageSource = '/demo/images/' + item.stateName + '.jpg';
+    $scope.model.imageAlt = item.display;
+};</code></pre>
+        </div>
+    </div>
+    <div class="example">
+        <span class="float-left">Render</span>
+        <div class="left">
+            <ea-tree-view items="model.simpsons" dataset-id="$id" callback="show"></ea-tree-view>
+        </div>
+        <div class="right">
+            <img data-ng-if="!!model.imageSource" ng-src="{{model.imageSource}}" alt="model.imageAlt" />
+        </div>
+    </div>
+</div>

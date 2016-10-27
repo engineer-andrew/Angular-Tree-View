@@ -1,0 +1,151 @@
+<h1>Angular-Tree-View</h1>
+<p>A dynamic tree view directive for Angular 1.5.*</p>
+
+<section>
+    <h3>Tree View API</h3>
+    <h5 class="property">branch-name</h5>
+    <span class="type string">String</span>
+    <span class="type optional">Optional</span>
+    <p class="padding-top-half-em">If set, specifies the property that will contain additional children.</p>
+    Since:
+    <ul>
+        <li>1.0.5</li>
+    </ul>
+    Default Value:
+    <ul>
+        <li>items</li>
+    </ul>
+    <p>
+        <strong>Example</strong>
+    </p>
+    <pre><code>&lt;ea-tree-view ... branch-name="kids" ...&gt;&lt;/ea-tree-view&gt;
+
+angular.module('demo', ['ea.treeview']).controller('mainController', function($scope) {
+    $scope.model.items = [
+        {
+            display: 'What to Show', kids: [
+                {
+                    display: 'A child display value', kids: [
+                        {display: 'A grandchild display value'}
+                    ]
+                }
+            ]
+        }
+    ];
+});</code></pre>
+</section>
+
+<section>
+    <h5 class="property">callback</h5>
+    <span class="type function">Function</span>
+    <span class="type optional">Optional</span>
+    <p class="padding-top-half-em">
+        If set, specifies the name of the function on the root controller to invoke when an item is clicked.
+        <br />
+        The callback function accepts the item that was clicked as a parameter.
+    </p>
+    Since:
+    <ul>
+        <li>1.0.0</li>
+    </ul>
+    Default Value:
+    <ul>
+        <li>N/A</li>
+    </ul>
+    <p>
+        <strong>Example</strong>
+    </p>
+    <pre><code>&lt;ea-tree-view ... callback="go" ...&gt;&lt;/ea-tree-view&gt;
+angular.module('demo', ['ea.treeview']).controller('mainController', function($scope) {
+    $scope.go = function(item) {
+        console.log(item);
+    }
+});</code></pre>
+</section>
+
+<section>
+    <h5 class="property">dataset-id</h5>
+    <span class="type string">String</span>
+    <span class="type number">Number</span>
+    <span class="type optional">Optional</span>
+    <p class="padding-top-half-em italicized">Only necessary when multiple Tree Views are used in a single module.</p>
+    <p>If set, specifies the id to use to allow each Tree View within a single module to identify its own data without interfering with other Tree View controls</p>
+    Since:
+    <ul>
+        <li>1.0.5</li>
+    </ul>
+    Default Value:
+    <ul>
+        <li>N/A</li>
+    </ul>
+    <p>
+        <strong>Example</strong>
+    </p>
+    <pre><code>&lt;ea-tree-view ... dataset-id="$id" ...&gt;&lt;/ea-tree-view&gt;</code></pre>
+</section>
+
+<section>
+    <h5 class="property">is-root</h5>
+    <span class="type boolean">Boolean</span>
+    <span class="type optional">Optional</span>
+    <p class="padding-top-half-em italicized">Only necessary when using a single Tree View with a router (such as ui-router).</p>
+    <p>If set, specifies that the Tree View should be the root, which allows the router to properly expand the parents of a route and "select" the matching item based on the route.</p>
+    Since:
+    <ul>
+        <li>1.0.0</li>
+    </ul>
+    Default Value:
+    <ul>
+        <li>false</li>
+    </ul>
+    <p>
+        <strong>Example</strong>
+    </p>
+    <pre><code>&lt;ea-tree-view ... is-root="false" ...&gt;&lt;/ea-tree-view&gt;</code></pre>
+</section>
+
+<section>
+
+    <h5 class="property">items</h5>
+    <span class="type array">Array</span>
+    <span class="type required">Required</span>
+    <p class"padding-top-half-em">The array containing the items to build the Tree View</p>
+    Since:
+    <ul>
+        <li>1.0.0</li>
+    </ul>
+    <p>
+        <strong>Example</strong>
+    </p>
+    <pre><code>&lt;ea-tree-view ... items="friggafromptons" ...&gt;&lt;/ea-tree-view&gt;
+angular.module('demo', ['ea.treeview']).controller('mainController', function($scope) {
+    $scope.model.friggafromptons = [
+        {
+            display: 'What to Show', kids: [
+                {
+                    display: 'A child display value', kids: [
+                        {display: 'A grandchild display value'}
+                    ]
+                }
+            ]
+        }
+    ];
+});</code></pre>
+</section>
+
+<section>
+    <h5 class="property">item-template-url</h5><span class="type string">String</span><span class="type optional">Optional</span>
+    <p class="padding-top-half-em">The URL of the template to use in the event you've created your own.</p>
+
+    <p class="italicized">Note: Only one template may be specified for all Tree Views in the module. There is currently no way to specify a different template for each Tree View</p>
+
+    Since:
+    <ul>
+        <li>1.0.5</li>
+    </ul>
+
+    <p><strong>Example</strong></p>
+
+    <pre><code>&lt;ea-tree-view ... item-template-url="/templates/customItemTemplate.html" ...&gt;&lt;/ea-tree-view&gt;
+    </code></pre>
+</section>

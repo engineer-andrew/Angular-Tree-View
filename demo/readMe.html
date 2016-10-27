@@ -1,0 +1,71 @@
+<h1>Angular-Tree-View</h1>
+<p>A dynamic tree view directive for Angular 1.5.*</p>
+
+<h3>Installation</h3>
+<pre><code>$ npm install angular-tree-view</code></pre>
+
+<h3>Code</h3>
+<p>The code is on <a href="https://github.com/engineer-andrew/Angular-Tree-View" target="_blank">Github</a>.
+
+<h3>Demo</h3>
+<p>The basic demo can be found <a href="https://engineer-andrew.github.io/Angular-Tree-View/basic">here</a>.</p>
+<p>The advanced demo can be found <a href="https://engineer-andrew.github.io/Angular-Tree-View/advanced">here</a>.</p>
+
+<h3>Quick Notes</h3>
+
+<p>Right now the module uses Font Awesome classes to display the expand/collapse chevrons (arrows/icons) on categories.  Although I plan to make that configurable in the future, an easy work around for now is to define a few classes you want to use to style the icons.  By creating the classes <code>fa-chevron-right</code> <em>(to be shown when the node is collapsed)</em> and <code>fa-chevron-down</code> <em>(to be shown when the node is expanded)</em> you'll be able to define how the arrows should look.  Or you can just use Font Awesome, but I'd advise against that if you're going to import it <strong>just</strong> for this.</p>
+
+<p>In case you can't tell I'm brand new to Github and npm so I'm going to do my best to document and update this directive as quickly and as often as I can.  If something is frustrating to you, I welcome input so please reach out and let me know.  Thanks! </p>
+
+<h3>Usage</h3>
+
+<p>To use angular-tree-view with the built-in item template (recommended) reference the <code>eaTreeView-tpls.min.js</code> file.  If you use npm to get the package you'd reference <code>/node_modules/angular-tree-view/dist/eaTreeView-tpls.min.js</code>.</p>
+
+<p>To use angular-tree-view with a custom item template (advanced) reference the <code>eaTreeView.min.js</code> file.  If you use npm to get the package you'd reference <code>/node_modules/angular-tree-view/dist/eaTreeView.min.js</code>.  You must also use the <code>template-url</code> option on the directive to specify where your custom template is.</p>
+
+<p class="italicized">If you decide to create your own item template, please refer to the <a href="/api/treeviewitem">Tree View Item API</a> to see what scope properties are passed from the Tree View directive.</p>
+
+<h5>The default item template markup looks like this:</h5>
+<pre><code>&lt;div ng-class="{'tree-trunk': !hasParent()}"&gt;
+    &lt;div data-ng-if="hasChildren()" class="tree-parent" data-ng-class="{'tree-child': hasParent()}"&gt;
+        &lt;div data-ng-click="toggleExpanded()" class="clickable"&gt;
+            &lt;i class="fa" data-ng-class="{'fa-chevron-right': !item.expanded, 'fa-chevron-down': item.expanded}"&gt;&lt;/i&gt;
+            &lt;span&gt;{{item.display}}&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;ea-tree-view data-ng-if="item.expanded" branch-name="{{branchName}}" dataset-id="datasetId" callback="callback" items="item.items"&gt;&lt;/ea-tree-view&gt;
+    &lt;/div&gt;
+    &lt;div data-ng-if="!hasChildren()" data-ng-click="activate()" class="tree-child clickable" data-ng-class="{active: item.isActive}"&gt;{{item.display}}&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>As you can see in the default markup we make use of three built-in Angular directives: ng-class, ng-if, and ng-click.  <strong>Keep in mind that this markup is repeated for each child in the tree structure so making this too big or complex might cause problems!</strong></p>
+
+<h3>Usage Notes</h3>
+
+<ol>
+    <li>If you want to specify the name of the property that holds children on child nodes, use the <code>branch-name</code> attribute in the directive.  Otherwise, all of your nested children will need to be named 'items'.</li>
+    <li>The <code>is-root</code> attribute is what allows the tree to expand properly on navigation so be sure to include that if you're using the tree view for navigation purposes</li>
+    <li>Passing the initial list to <code>eaTreeViewFactory.setItems</code> is how everything gets wired up to select the active item and expand the tree on navigation so make sure to do that!</li>
+    <li>If you're using ui-router and you want the tree to expand and select the current state when you navigate to a state via URL, you need to call <code>eaTreeViewFactory.bind()</code>.</li>
+    <li>You can also bind to any other event in case you have custom navigation or you're using the tree view for some other purpose, just pass the name of the event to <code>eaTreeViewFactory.bind()</code> to do so: (<code>eaTreeViewFactory.bind('someEvent')</code>).</li>
+    <li>There are four styles that are not included in the distributed (minified) js file.  I'm working on a way to resolve that more easily, but for now you can copy/paste them from eaTreeView.css or you can define your own.
+        <ol>
+            <li>
+                <code>clickable</code>
+                <ul><li>This is used to change the cursor when the user hovers over an item</li></ul>
+            </li>
+            <li>
+                <code>active</code>
+                <ul><li>This is used to highlight which item is active</li></ul>
+            </li>
+            <li>
+                <code>tree-parent</code>
+                <ul><li>This is used to style the tree view parent items (any item that has children of its own is considered a parent)</li></ul>
+            </li>
+            <li>
+                <code>tree-child</code>
+                <ul><li>This is used to style all items that have parents (even if the item also has children of its own)</li></ul>
+            </li>
+        </ol>
+    </li>
+</ol>

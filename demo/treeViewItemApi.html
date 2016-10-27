@@ -1,0 +1,80 @@
+<h1>Angular-Tree-View</h1>
+<p>A dynamic tree view directive for Angular 1.5.*</p>
+
+<h3>Tree View Item API</h3>
+
+<section>
+    <h5 class="property">branch-name</h5>
+    <span class="type string">String</span>
+    <span class="type optional">Optional</span>
+    <p class="padding-top-half-em">
+        If set (on Tree View), specifies the property that will contain additional children.
+        <br />
+        This property is passed through to the Tree View Item so that it can be passed to additional Tree Views created as children of the item.
+    </p>
+    Since:
+    <ul>
+        <li>1.0.5</li>
+    </ul>
+    Default Value:
+    <ul>
+        <li>items</li>
+    </ul>
+</section>
+
+<section>
+    <h5 class="property">callback</h5>
+    <span class="type function">Function</span>
+    <span class="type optional">Optional</span>
+    <p class="padding-top-half-em">
+        If set (on Tree View), specifies the name of the function on the root controller to invoke when an item is clicked.
+        <br />
+        The callback function accepts the item that was clicked as a parameter.
+        <br />
+        This property is passed through to the Tree View Item so that it can be passed to additional Tree Views created as children of the item.
+    </p>
+    Since:
+    <ul>
+        <li>1.0.0</li>
+    </ul>
+    Default Value:
+    <ul>
+        <li>N/A</li>
+    </ul>
+</section>
+
+<section>
+    <h5 class="property">dataset-id</h5>
+    <span class="type string">String</span>
+    <span class="type number">Number</span>
+    <span class="type optional">Optional</span>
+    <p class="padding-top-half-em italicized">Only necessary when multiple Tree Views are used in a single module.</p>
+    <p>
+        If set (on Tree View), specifies the id to use to allow each Tree View within a single module to identify its own data without interfering with other Tree View controls.
+        <br />
+        This property is passed through to the Tree View Item so that it can be passed to additional Tree Views created as children of the item.
+    </p>
+    Since:
+    <ul>
+        <li>1.0.5</li>
+    </ul>
+    Default Value:
+    <ul>
+        <li>N/A</li>
+    </ul>
+</section>
+
+<section>
+    <h5 class="property">item</h5>
+    <span class="type object">Object</span>
+    <span class="type required">Required</span>
+    <p class="padding-top-half-em">Identifies the item whose properties will be used to render the directive.</p>
+    Since:
+    <ul>
+        <li>1.0.0</li>
+    </ul>
+    Default Value:
+    <ul>
+        <li>N/A</li>
+    </ul>
+</section>

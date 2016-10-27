@@ -1,0 +1,96 @@
+<div>
+    <div class="markup">
+        Markup
+        <pre><code>&lt;ea-tree-view items="model.simpsons" dataset-id="simpsonsKey" callback="showPicture"&gt;&lt;/ea-tree-view&gt;
+&lt;ea-tree-view items="model.characters" dataset-id="happyDaysKey" callback="showCatchPhrase" branch-name="kids" item-template-url="/demo/customTemplate.html"&gt;&lt;/ea-tree-view&gt;</code></pre>
+        Custom Template
+        <pre><code>&lt;div&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;span data-ng-click="activate()" class="clickable" data-ng-class="{active: item.isActive}">&lt;span data-ng-click="toggleExpanded()"&gt;{{item.display}}&lt;/span>&lt;/span&gt;
+            &lt;ul data-ng-if="hasChildren()"&gt;
+                &lt;ea-tree-view data-ng-if="item.expanded" branch-name="{{branchName}}" dataset-id="datasetId" callback="callback" items="item.items"&gt;&lt;/ea-tree-view&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+    <div class="code">
+        Code
+        <div>
+            <pre><code>$scope.model = {
+    simpsons: [
+        {
+            display: 'Abe',
+            items: [
+                {
+                    display: 'Homer', items: [
+                        {display: 'Bart', stateName: 'Homer-Bart'},
+                        {display: 'Lisa', stateName: 'Homer-Lisa'},
+                        {display: 'Maggie', stateName: 'Homer-Maggie'}
+                    ]
+                },
+                {display: 'Herb', stateName: 'Herb'},
+                {display: 'Abbie', stateName: 'Abbie'}
+            ]
+        },
+        {
+            display: 'Jacqueline',
+            items: [
+                {display: 'Patty', stateName: 'Patty'},
+                {display: 'Selma', stateName: 'Selma'},
+                {
+                    display: 'Marge', items: [
+                        {display: 'Bart', stateName: 'Marge-Bart'},
+                        {display: 'Lisa', stateName: 'Marge-Lisa'},
+                        {display: 'Maggie', stateName: 'Marge-Maggie'}
+                    ]
+                },
+            ]
+        }
+    ],
+    characters: [
+        {
+            display: 'Howard Cunningham', items: [
+                {display: 'Richie Cunningham', stateName: 'Richie'},
+                {display: 'Joanie Cunningham', stateName: 'Joanie'}
+            ]
+        },
+        {display: 'Potsie', stateName: 'Potsie', catchPhrase: 'What\'s a catch phrase?'},
+        {display: 'Fonzie', stateName: 'Fonzie', catchPhrase: 'Heeeeeeeeey!'}
+    ]
+};
+
+$scope.simpsonsKey = $scope.$id + 'simpsons';
+$scope.happyDaysKey = $scope.$id + 'characters';
+
+eaTreeViewFactory.setItems($scope.model.simpsons, $scope.simpsonsKey);
+eaTreeViewFactory.setItems($scope.model.characters, $scope.happyDaysKey);
+
+$scope.showPicture = function(item) {
+    $scope.model.catchPhrase = null;
+    $scope.model.imageSource = '/demo/images/' + item.stateName + '.jpg';
+    $scope.model.imageAlt = item.display;
+};
+
+$scope.showCatchPhrase = function(item) {
+    $scope.model.imageSource = null;
+    $scope.model.imageAlt = null;
+    $scope.model.catchPhrase = item.catchPhrase;
+};</code></pre>
+        </div>
+    </div>
+    <div class="example">
+        <span class="float-left">Render</span>
+        <div class="left">
+            <ea-tree-view items="model.simpsons" dataset-id="simpsonsKey" callback="showPicture"></ea-tree-view>            
+        </div>
+        <div class="middle">
+            <ea-tree-view items="model.characters" dataset-id="happyDaysKey" callback="showCatchPhrase" branch-name="kids" item-template-url="/demo/customTemplate.html"></ea-tree-view>
+        </div>
+        <div class="right">
+            <img data-ng-if="!!model.imageSource" ng-src="{{model.imageSource}}" alt="model.imageAlt" />
+            <span data-ng-if="!!model.catchPhrase">{{model.catchPhrase}}</span>
+        </div>
+    </div>
+</div>

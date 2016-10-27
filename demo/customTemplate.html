@@ -1,0 +1,10 @@
+<div>
+    <ul>
+        <li>
+            <span data-ng-click="activate()" class="clickable" data-ng-class="{active: item.isActive}"><span data-ng-click="toggleExpanded()">{{item.display}}</span></span>
+            <ul data-ng-if="hasChildren()">
+                <ea-tree-view data-ng-if="item.expanded" branch-name="{{branchName}}" dataset-id="datasetId" callback="callback" items="item.items"></ea-tree-view>
+            </ul>
+        </li>
+    </ul>
+</div>
