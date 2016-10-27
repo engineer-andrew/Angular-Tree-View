@@ -1,7 +1,7 @@
 angular.module('demo', ['ea.treeview', 'ui.router']).config(function($stateProvider, $locationProvider) {
     $stateProvider
         .state('default', {
-            templateUrl: '/demo/api.html',
+            templateUrl: '/Angular-Tree-View/demo/api.html',
             url: '/'
         })
         .state('api', {
@@ -10,15 +10,15 @@ angular.module('demo', ['ea.treeview', 'ui.router']).config(function($stateProvi
             url: '/api'
         })
         .state('api.treeView', {
-            templateUrl: '/demo/treeViewApi.html',
+            templateUrl: '/Angular-Tree-View/demo/treeViewApi.html',
             url: '/treeview'
         })
         .state('api.treeViewItem', {
-            templateUrl: '/demo/treeViewItemApi.html',
+            templateUrl: '/Angular-Tree-View/demo/treeViewItemApi.html',
             url: '/treeviewitem'
         })
         .state('readme', {
-            templateUrl: '/demo/readme.html',
+            templateUrl: '/Angular-Tree-View/demo/readme.html',
             url: '/readme'
         })
         .state('example', {
@@ -28,12 +28,12 @@ angular.module('demo', ['ea.treeview', 'ui.router']).config(function($stateProvi
         })
         .state('example.basic', {
             controller: 'basicController',
-            templateUrl: '/demo/basicExample.html',
+            templateUrl: '/Angular-Tree-View/demo/basicExample.html',
             url: '/basic'
         })
         .state('example.advanced', {
             controller: 'advancedController',
-            templateUrl: '/demo/advancedExample.html',
+            templateUrl: '/Angular-Tree-View/demo/advancedExample.html',
             url: '/advanced'
         });
 
@@ -90,7 +90,7 @@ angular.module('demo', ['ea.treeview', 'ui.router']).config(function($stateProvi
     eaTreeViewFactory.setItems($scope.model.simpsons, $scope.$id);
     
     $scope.show = function(item) {
-        $scope.model.imageSource = '/demo/images/' + item.stateName + '.jpg';
+        $scope.model.imageSource = '/Angular-Tree-View/demo/images/' + item.stateName + '.jpg';
         $scope.model.imageAlt = item.display;
     };
 }).controller('advancedController', function($scope, eaTreeViewFactory) {
@@ -128,7 +128,7 @@ angular.module('demo', ['ea.treeview', 'ui.router']).config(function($stateProvi
 
     $scope.showPicture = function(item) {
         $scope.model.catchPhrase = null;
-        $scope.model.imageSource = '/demo/images/' + item.stateName + '.jpg';
+        $scope.model.imageSource = '/Angular-Tree-View/demo/images/' + item.stateName + '.jpg';
         $scope.model.imageAlt = item.display;
     };
 
