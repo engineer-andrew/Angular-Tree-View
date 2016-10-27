@@ -18,7 +18,7 @@ angular.module('demo', ['ea.treeview', 'ui.router']).config(function($stateProvi
             url: '/treeviewitem'
         })
         .state('readme', {
-            templateUrl: '/Angular-Tree-View/demo/readme.html',
+            templateUrl: '/Angular-Tree-View/demo/readMe.html',
             url: '/readme'
         })
         .state('example', {
