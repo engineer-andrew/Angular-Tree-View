@@ -2,28 +2,20 @@
     <head>
         <title>Angular-Tree-View Demo</title>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-        <link href="src/eaTreeView.css" rel="stylesheet">
-        <link href="demo/demo.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/src/eaTreeView.css" rel="stylesheet">
+        <link href="/demo/demo.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-        <script src="dist/eaTreeView-tpls.min.js"></script>
-        <script src="demo/demo.module.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+        <script src="/dist/eaTreeView-tpls.min.js"></script>
+        <script src="/demo/demo.module.js"></script>
+        <base href="/" />
     </head>
-    <body>
-        <div ng-controller="simpsonsController">
-            <div class="left">
-                <ea-tree-view is-root="true" items="model.simpsons" callback="show"></ea-tree-view>
-            </div>
-            <div class="right">
-                <img ng-if="!!model.imageSource" ng-src="{{model.imageSource}}" alt="model.imageAlt" />
-            </div>
+    <body ng-controller="mainController">
+        <div class="col-xs-2">
+            <ea-tree-view items="model.menu" is-root="true" callback="go"></ea-tree-view>
         </div>
-        <div ng-controller="happyDaysController">
-            <div class="left">
-                <ea-tree-view is-root="true" items="model.characters" dataset-id="$id" callback="show"></ea-tree-view>
-            </div>
-            <div class="right white">
-                {{model.catchPhrase}}
-            </div>
+        <div class="col-xs-10 full-height" ui-view>
         </div>
     </body>
 </html>

@@ -1,0 +1,16 @@
+<div ng-controller="simpsonsController">
+    <div class="left">
+        <ea-tree-view is-root="true" items="model.simpsons" callback="show"></ea-tree-view>
+    </div>
+    <div class="right">
+        <img ng-if="!!model.imageSource" ng-src="{{model.imageSource}}" alt="model.imageAlt" />
+    </div>
+</div>
+<div ng-controller="happyDaysController">
+    <div class="left">
+        <ea-tree-view is-root="true" items="model.characters" dataset-id="$id" callback="show"></ea-tree-view>
+    </div>
+    <div class="right white">
+        {{model.catchPhrase}}
+    </div>
+</div>

@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/engineer-andrew/Angular-Tree-View/issues"
   },
-  "homepage": "https://github.com/engineer-andrew/Angular-Tree-View#readme",
+  "homepage": "https://engineer-andrew.github.io/Angular-Tree-View/",
   "devDependencies": {
     "del": "^2.2.2",
     "gulp": "^3.9.1",

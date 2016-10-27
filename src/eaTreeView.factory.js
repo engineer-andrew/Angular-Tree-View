@@ -10,6 +10,7 @@ angular.module('ea.treeview').factory('eaTreeViewFactory', function($rootScope) 
         // or any other event they want to specify (in case they're not using ui-router)
         bindEvent: function(name, datasetId) {
             name = name || '$stateChangeSuccess';
+            datasetId = datasetId || 'default';
             $rootScope.$on(name, function (event, args) {
                 visible.setActive(args.name, datasetId);
             });
@@ -21,6 +22,9 @@ angular.module('ea.treeview').factory('eaTreeViewFactory', function($rootScope) 
         },
         getItemTemplateUrl: function() {
             return concealed.itemTemplateUrl;
+        },
+        resetItemTemplateUrl: function() {
+            concealed.itemTemplateUrl = null;
         },
         // set the active item and expand all ancestors of the active item
         setActive: function(state, datasetId, items, matchFound, nestingLevel, stopExpandingParents) {
