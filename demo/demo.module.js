@@ -7,7 +7,7 @@ angular.module('demo', ['ea.treeview', 'ui.router']).config(function($stateProvi
         .state('api', {
             abstract: true,
             template: '<div ui-view></div>',            
-            url: '/api'
+            url: '/Angular-Tree-View/api'
         })
         .state('api.treeView', {
             templateUrl: '/Angular-Tree-View/demo/treeViewApi.html',
@@ -19,12 +19,12 @@ angular.module('demo', ['ea.treeview', 'ui.router']).config(function($stateProvi
         })
         .state('readme', {
             templateUrl: '/Angular-Tree-View/demo/readMe.html',
-            url: '/readme'
+            url: '/Angular-Tree-View/readme'
         })
         .state('example', {
             abstract: true,
             template: '<div ui-view></div>',
-            url: '/examples'
+            url: '/Angular-Tree-View/examples'
         })
         .state('example.basic', {
             controller: 'basicController',
