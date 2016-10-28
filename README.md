@@ -10,9 +10,7 @@ $ npm install angular-tree-view
 The code is on [Github](https://github.com/engineer-andrew/Angular-Tree-View).
 
 ### Demo
-The basic demo can be found [here](https://engineer-andrew.github.io/Angular-Tree-View/basic).
-
-The advanced demo can be found [here](https://engineer-andrew.github.io/Angular-Tree-View/advanced).
+Check out all of the demos on [Github Pages](https://engineer-andrew.github.io/Angular-Tree-View/).
 
 ### Quick Notes
 Right now the module uses Font Awesome classes to display the expand/collapse chevrons (arrows/icons) on categories.  Although I plan to make that configurable in the future, an easy work around for now is to define a few classes you want to use to style the icons.  By creating the classes `fa-chevron-right` *(to be shown when the node is collapsed)* and `fa-chevron-down` *(to be shown when the node is expanded)* you'll be able to define how the arrows should look.  Or you can just use Font Awesome, but I'd advise against that if you're going to import it **just** for this.
@@ -20,14 +18,14 @@ Right now the module uses Font Awesome classes to display the expand/collapse ch
 In case you can't tell I'm brand new to Github and npm so I'm going to do my best to document and update this directive as quickly and as often as I can.  If something is frustrating to you, I welcome input so please reach out and let me know.  Thanks! 
 
 ### API
-The API can be viewed on the Read Me page of our demo site [here](https://engineer-andrew.github.io/Angular-Tree-View/api).
+You can check out the APIs on the [Github Pages](https://engineer-andrew.github.io/Angular-Tree-View/) site by expanding API and choosing which directive you want (hint: you probably want to look at the Tree View Item API unless you're using your own item template).
 
 ### Usage
 To use angular-tree-view with the built-in item template (recommended) reference the `eaTreeView-tpls.min.js` file.  If you use npm to get the package you'd reference `/node_modules/angular-tree-view/dist/eaTreeView-tpls.min.js`.
 
 To use angular-tree-view with a custom item template (advanced) reference the `eaTreeView.min.js` file.  If you use npm to get the package you'd reference `/node_modules/angular-tree-view/dist/eaTreeView.min.js`.  You must also use the `template-url` option on the directive to specify where your custom template is.
 
-*If you decide to create your own item template, please refer to the [Tree View Item API](https://engineer-andrew.github.io/Angular-Tree-View/api/treeviewitem) section of this document to see what scope properties are passed from the Tree View directive.*
+*If you decide to create your own item template, please refer to the [Tree View Item API](https://engineer-andrew.github.io/Angular-Tree-View/) to see what scope properties are passed from the Tree View directive.*
 
 **The default item template markup looks like this:**
 ```
