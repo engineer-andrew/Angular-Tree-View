@@ -86,7 +86,7 @@ $scope.showCatchPhrase = function(item) {
             <ea-tree-view items="model.simpsons" dataset-id="simpsonsKey" callback="showPicture"></ea-tree-view>            
         </div>
         <div class="middle">
-            <ea-tree-view items="model.characters" dataset-id="happyDaysKey" callback="showCatchPhrase" branch-name="kids" item-template-url="/demo/customTemplate.html"></ea-tree-view>
+            <ea-tree-view items="model.characters" dataset-id="happyDaysKey" callback="showCatchPhrase" branch-name="kids" item-template-url="/Angular-Tree-View/demo/customTemplate.html"></ea-tree-view>
         </div>
         <div class="right">
             <img data-ng-if="!!model.imageSource" ng-src="{{model.imageSource}}" alt="model.imageAlt" />
