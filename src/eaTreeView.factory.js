@@ -54,6 +54,7 @@ angular.module('ea.treeview').factory('eaTreeViewFactory', function($rootScope) 
                             // if the item's state is the one being searched for then set the item to active and flip the matched flag
                             items[i].isActive = true;
                             matchFound = true;
+                            stopExpandingParents = true;
                         } else {
                             items[i].isActive = false;
                         }
